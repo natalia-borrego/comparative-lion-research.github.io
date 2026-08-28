@@ -1,0 +1,1861 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- =========================================================
+       SITE SETTINGS
+       ========================================================= -->
+  <title>Comparative Lion Behaviour Research Programme</title>
+
+  <meta name="description"
+        content="A collaborative research programme co-led by Natalia Borrego and Genevieve E. Finerty investigating how ecological conditions shape African lion social behaviour, collective action, and perception across contrasting environments.">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+
+  <!-- =========================================================
+       ALL CSS IS INSIDE THIS FILE.
+       No separate CSS file is required.
+       ========================================================= -->
+  <style>
+
+    /* =========================================================
+       STYLE 00: SITE-WIDE COLOURS + BASICS
+       ========================================================= */
+    :root {
+      --forest: #29483A;
+      --forest-deep: #1E352B;
+      --ivory: #F6F2E9;
+      --paper: #FCFAF5;
+      --charcoal: #252824;
+      --sand: #D8CDB8;
+      --ochre: #A8753E;
+      --muted: #6E716B;
+      --line: rgba(37,40,36,.16);
+      --white: #FFFFFF;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--charcoal);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.08;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.5rem, 8vw, 7.2rem);
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+    }
+
+    p { margin-top: 0; }
+
+    .section {
+      width: min(var(--max), calc(100% - 56px));
+      margin: 0 auto;
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      max-width: 880px;
+      margin-bottom: 52px;
+    }
+
+    .section-heading > p:last-child {
+      max-width: 780px;
+      font-size: 1.08rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: .76rem;
+      letter-spacing: .16em;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .eyebrow.dark { color: var(--forest); }
+    .eyebrow.light { color: var(--sand); }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border: 1px solid currentColor;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .button-light {
+      background: var(--ivory);
+      color: var(--forest-deep);
+      border-color: var(--ivory);
+    }
+
+    .button-ghost { color: white; }
+
+
+    /* =========================================================
+       STYLE 01: OPTIONAL UNDER-CONSTRUCTION BANNER
+       ========================================================= */
+    .site-notice {
+      background: var(--ochre);
+      color: white;
+      text-align: center;
+      padding: 11px 18px;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       STYLE 02: NAVIGATION
+       ========================================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px max(28px, calc((100vw - var(--max))/2));
+      background: rgba(246,242,233,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    nav a:hover { color: var(--ochre); }
+
+
+    /* =========================================================
+       STYLE 03: HERO
+       PHOTO = assets/images/programme-leads.jpg
+       ========================================================= */
+    .hero {
+      background: var(--forest-deep);
+      color: white;
+    }
+
+    .hero-inner {
+      width: min(var(--max), calc(100% - 56px));
+      margin: 0 auto;
+      padding: 86px 0;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+    }
+
+    .hero-subtitle {
+      margin: 24px 0 16px;
+      max-width: 690px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.45rem, 2.7vw, 2.35rem);
+      line-height: 1.22;
+    }
+
+    .hero-intro {
+      max-width: 690px;
+      font-size: 1.06rem;
+      color: rgba(255,255,255,.82);
+    }
+
+    .programme-leads {
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.28);
+    }
+
+    .programme-leads-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--sand);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .programme-leads-names {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.45rem, 2.5vw, 2.15rem);
+      line-height: 1.25;
+      color: white;
+    }
+
+    .hero-visual {
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.04);
+      padding: 10px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+
+    /* =========================================================
+       STYLE 04: GRANT-LED PROGRAMME TIMELINE
+       ========================================================= */
+    .projects-intro {
+      padding-bottom: 52px;
+    }
+
+    .project-timeline {
+      position: relative;
+      width: min(1120px, calc(100% - 56px));
+      margin: 0 auto;
+      padding-bottom: 105px;
+    }
+
+    .project-timeline::before {
+      content: "";
+      position: absolute;
+      left: 86px;
+      top: 0;
+      bottom: 105px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .project-chapter {
+      display: grid;
+      grid-template-columns: 110px minmax(0,1fr);
+      gap: 34px;
+      margin-bottom: 68px;
+      position: relative;
+    }
+
+    .chapter-index {
+      position: relative;
+      padding-top: 5px;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .chapter-index::after {
+      content: "";
+      position: absolute;
+      right: -42px;
+      top: 12px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--ochre);
+      border: 4px solid var(--paper);
+    }
+
+    .chapter-card {
+      background: white;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .chapter-top {
+      padding: 38px 42px 28px;
+      background: var(--ivory);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chapter-funder {
+      margin-bottom: 8px;
+      color: var(--forest);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .chapter-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+
+    .chapter-body {
+      padding: 36px 42px 40px;
+    }
+
+    .chapter-question {
+      margin-bottom: 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      line-height: 1.3;
+      color: var(--forest-deep);
+    }
+
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .chapter-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--forest);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .chapter-small {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--forest);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    .bridge {
+      margin: -18px 0 68px 144px;
+      max-width: 760px;
+      padding: 22px 26px;
+      border-left: 3px solid var(--ochre);
+      background: rgba(168,117,62,.08);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.16rem;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       STYLE 05: WHAT THE GRANTS BUILT
+       ========================================================= */
+    .platform-section {
+      width: 100%;
+      padding-left: max(28px, calc((100vw - var(--max))/2));
+      padding-right: max(28px, calc((100vw - var(--max))/2));
+      background: var(--forest-deep);
+      color: white;
+    }
+
+    .platform-section .section-heading p {
+      color: rgba(255,255,255,.78);
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .platform-card {
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.04);
+    }
+
+    .platform-card span {
+      display: block;
+      margin-bottom: 30px;
+      color: var(--sand);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .platform-card h3 {
+      font-size: 1.6rem;
+    }
+
+    .platform-card p {
+      color: rgba(255,255,255,.76);
+    }
+
+
+    /* =========================================================
+       STYLE 06: FIELD SYSTEMS
+       ========================================================= */
+    .site-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
+    }
+
+    .site-card {
+      background: white;
+      border-bottom: 3px solid var(--forest);
+    }
+
+    .site-card img {
+      aspect-ratio: 4/3;
+    }
+
+    .site-card > div {
+      padding: 24px;
+    }
+
+    .site-label {
+      margin: 0 0 8px;
+      color: var(--forest);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .site-role {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .site-role strong {
+      color: var(--forest);
+    }
+
+    .site-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .site-tags span {
+      padding: 6px 8px;
+      border: 1px solid var(--line);
+      background: var(--ivory);
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       STYLE 07: HOW THE PROGRAMME WORKS
+       ========================================================= */
+    .methods-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      border-top: 1px solid var(--line);
+    }
+
+    .methods-image img {
+      min-height: 560px;
+      height: 100%;
+    }
+
+    .methods-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .methods-list div {
+      padding: 14px;
+      background: var(--ivory);
+      border: 1px solid var(--line);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       STYLE 08: PEOPLE + COLLABORATORS
+       ========================================================= */
+    .people-section {
+      background: var(--ivory);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .co-pi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 54px;
+    }
+
+    .person-card {
+      padding: 28px;
+      background: white;
+      border: 1px solid var(--line);
+    }
+
+    .person-card h3 {
+      font-size: 2rem;
+    }
+
+    .person-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .person-links a {
+      color: var(--forest);
+      font-size: .86rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .people-subhead {
+      margin: 58px 0 24px;
+      font-size: 2rem;
+    }
+
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .collab-card {
+      padding: 22px;
+      background: white;
+      border: 1px solid var(--line);
+    }
+
+    .collab-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.16rem;
+    }
+
+    .collab-card span {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .grant-group {
+      margin-top: 14px;
+      color: var(--forest);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       STYLE 09: SELECTED OUTPUTS
+       ========================================================= */
+    .outputs-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 18px;
+    }
+
+    .output-card {
+      padding: 24px;
+      background: white;
+      border: 1px solid var(--line);
+    }
+
+    .output-year {
+      color: var(--ochre);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .output-card h3 {
+      margin-top: 10px;
+      font-size: 1.45rem;
+    }
+
+    .output-card a {
+      color: var(--forest);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .output-card a:hover { text-decoration: underline; }
+
+
+    /* =========================================================
+       STYLE 10: FOOTER
+       ========================================================= */
+    footer {
+      padding: 38px max(28px, calc((100vw - var(--max))/2));
+      background: var(--charcoal);
+      color: rgba(255,255,255,.72);
+      font-size: .82rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    footer p { margin: 0; }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+
+    /* =========================================================
+       STYLE 11: TABLET + MOBILE
+       ========================================================= */
+    @media (max-width: 900px) {
+
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+        gap: 14px 18px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding: 68px 0;
+      }
+
+      .hero-copy {
+        max-width: none;
+      }
+
+      .hero-visual {
+        max-width: 720px;
+      }
+
+      .platform-grid,
+      .site-grid,
+      .co-pi-grid,
+      .collab-grid,
+      .outputs-grid,
+      .methods-section {
+        grid-template-columns: 1fr;
+      }
+
+      .chapter-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .methods-image img {
+        min-height: 0;
+        aspect-ratio: 4/3;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+
+      .section {
+        width: calc(100% - 36px);
+        padding: 72px 0;
+      }
+
+      .project-timeline {
+        width: calc(100% - 36px);
+      }
+
+      .project-timeline::before {
+        display: none;
+      }
+
+      .project-chapter {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .chapter-index {
+        text-align: left;
+      }
+
+      .chapter-index::after {
+        display: none;
+      }
+
+      .bridge {
+        margin-left: 0;
+      }
+
+      .chapter-top,
+      .chapter-body {
+        padding: 26px;
+      }
+
+      .methods-list {
+        grid-template-columns: 1fr;
+      }
+
+      .site-header {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .hero-inner {
+        width: calc(100% - 36px);
+      }
+
+      h1 { font-size: 3.5rem; }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================================================
+       SECTION 01: OPTIONAL UNDER-CONSTRUCTION BANNER
+
+       TO SHOW IT:
+       Remove the comment markers around the div below.
+
+  <div class="site-notice">
+    This programme page is currently under construction. Please check back soon.
+  </div>
+
+       ========================================================= -->
+
+
+  <!-- =========================================================
+       SECTION 02: NAVIGATION
+       ========================================================= -->
+  <header class="site-header">
+
+    <a class="brand" href="#top">
+      Comparative Lion Research
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <a href="#projects">Funding</a>
+      <a href="#people">People &amp; Partners</a>
+      <a href="#programme">Programme</a>
+      <a href="#sites">Field Systems</a>
+      <a href="#methods">How We Work</a>
+      <a href="#outputs">Outputs</a>
+    </nav>
+
+  </header>
+  <!-- ================= END SECTION 02 ======================== -->
+
+
+  <main id="top">
+
+
+    <!-- =======================================================
+         SECTION 03: HERO
+
+         A simple programme identity:
+         one research programme, jointly led.
+         ======================================================= -->
+    <section class="hero">
+
+      <div class="hero-inner">
+
+        <div class="hero-copy">
+
+          <p class="eyebrow light">
+            Collaborative African lion research programme
+          </p>
+
+          <h1>
+            Collaborative Comparative Lion Research
+          </h1>
+
+          <p class="hero-subtitle">
+            A jointly led programme across contrasting African lion populations.
+          </p>
+
+          <p class="hero-intro">
+            We investigate how ecological conditions shape lion social behaviour,
+            collective action, communication, and perception by comparing populations
+            that experience very different ecological and social environments.
+          </p>
+
+          <div class="programme-leads">
+            <span class="programme-leads-label">Programme co-PIs</span>
+            <p class="programme-leads-names">
+              Natalia Borrego &amp; Genevieve E. Finerty
+            </p>
+          </div>
+
+          <div class="button-row">
+            <a class="button button-light" href="#projects">
+              Funding &amp; programme development
+            </a>
+
+            <a class="button button-ghost" href="#people">
+              People &amp; collaborations
+            </a>
+          </div>
+
+        </div>
+
+        <div class="hero-visual">
+          <img
+            src="assets/images/programme-leads.jpg"
+            alt="Programme co-leads during lion research">
+        </div>
+
+      </div>
+
+    </section>
+    <!-- ================= END SECTION 03 ====================== -->
+
+
+    <!-- =======================================================
+         SECTION 04: FUNDED PROJECTS
+
+         THIS IS NOW THE MAIN BODY OF THE PAGE.
+
+         04A = Collaborative Research Grant
+         04B = CASCB Newcomer Project
+         04C = ZENiT Fellowship
+         ======================================================= -->
+    <section class="section projects-intro" id="projects">
+
+      <div class="section-heading">
+
+        <p class="eyebrow dark">
+          Funding &amp; programme development
+        </p>
+
+        <h2>
+          One programme built through three linked awards.
+        </h2>
+
+        <p>
+          Each award expanded the same collaborative research programme:
+          first establishing a comparative framework for sociality, then adding
+          whole-group approaches to collective action, and finally extending the
+          programme toward the sensory information available before animals act.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <div class="project-timeline">
+
+
+      <!-- =====================================================
+           SECTION 04A: COLLABORATIVE RESEARCH GRANT
+           ===================================================== -->
+      <article class="project-chapter">
+
+        <div class="chapter-index">
+          01 · 2021
+        </div>
+
+
+        <div class="chapter-card">
+
+          <div class="chapter-top">
+
+            <p class="chapter-funder">
+              Collaborative Research Grant · MPI-AB / University of Konstanz
+            </p>
+
+            <h3 class="chapter-title">
+              When does lion sociality emerge—and when does it break down?
+            </h3>
+
+          </div>
+
+
+          <div class="chapter-body">
+
+            <p class="chapter-question">
+              The starting problem: lions are social across environments that
+              differ dramatically in resource abundance, density, and the
+              opportunities individuals have to encounter one another.
+            </p>
+
+            <p>
+              This project established the comparative foundation of the programme
+              by asking how social structure and cooperation vary across lion
+              populations living under different ecological conditions. The goal
+              is not simply to catalogue population differences, but to identify
+              the conditions under which different social strategies become more
+              or less advantageous.
+            </p>
+
+
+            <div class="chapter-grid">
+
+              <div>
+                <span class="chapter-label">What it enabled</span>
+
+                <p class="chapter-small">
+                  A multi-population comparative framework linking ecological
+                  variation to social structure, cooperation, and movement.
+                </p>
+              </div>
+
+
+              <div>
+                <span class="chapter-label">Award</span>
+
+                <p class="chapter-small">
+                  €146,728 plus salary support
+                </p>
+              </div>
+
+            </div>
+
+
+            <a class="project-link"
+               href="https://www.ab.mpg.de/217033/crg-winners-announced"
+               target="_blank"
+               rel="noopener">
+              Official award announcement →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+      <!-- ================= END SECTION 04A =================== -->
+
+
+      <div class="bridge">
+        That comparative framework raised a second question:
+        if ecological conditions alter sociality, how are collective actions
+        actually organized among individuals?
+      </div>
+
+
+      <!-- =====================================================
+           SECTION 04B: CASCB NEWCOMER PROJECT
+           ===================================================== -->
+      <article class="project-chapter">
+
+        <div class="chapter-index">
+          02 · 2022
+        </div>
+
+
+        <div class="chapter-card">
+
+          <div class="chapter-top">
+
+            <p class="chapter-funder">
+              CASCB Newcomer Project · Centre for the Advanced Study of Collective Behaviour
+            </p>
+
+            <h3 class="chapter-title">
+              Cooperation in collective action: on the “hunt” for role specialisation.
+            </h3>
+
+          </div>
+
+
+          <div class="chapter-body">
+
+            <p class="chapter-question">
+              The next problem: understanding why animals are social does not
+              explain how multiple individuals coordinate a joint action.
+            </p>
+
+            <p>
+              This project moves from the ecology of sociality to the mechanics of
+              collective action. By collecting fine-scale data simultaneously from
+              entire prides, we ask how individuals communicate and respond to one
+              another, whether they coordinate toward joint outcomes, and under what
+              conditions specialized roles emerge during cooperative hunting.
+            </p>
+
+
+            <div class="chapter-grid">
+
+              <div>
+                <span class="chapter-label">What it added</span>
+
+                <p class="chapter-small">
+                  Whole-group multi-sensor biologging, fine-scale measurement of
+                  collective movement, and explicit tests of communication,
+                  cooperative hunting, and role differentiation.
+                </p>
+              </div>
+
+
+              <div>
+                <span class="chapter-label">Award</span>
+
+                <p class="chapter-small">
+                  €305,978
+                </p>
+              </div>
+
+            </div>
+
+
+            <a class="project-link"
+               href="https://www.exc.uni-konstanz.de/collective-behaviour/research/structure/a-individuals-in-the-collective/cooperation-in-collective-action-on-the-hunt-for-role-specialization/"
+               target="_blank"
+               rel="noopener">
+              Official CASCB project page →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+      <!-- ================= END SECTION 04B =================== -->
+
+
+      <div class="bridge">
+        Measuring collective behaviour tells us what animals do together.
+        It does not tell us what information was available to them before
+        they moved, communicated, or coordinated.
+      </div>
+
+
+      <!-- =====================================================
+           SECTION 04C: ZENiT FELLOWSHIP
+           ===================================================== -->
+      <article class="project-chapter">
+
+        <div class="chapter-index">
+          03 · 2025
+        </div>
+
+
+        <div class="chapter-card">
+
+          <div class="chapter-top">
+
+            <p class="chapter-funder">
+              ZENiT Fellowship · Zukunftskolleg, University of Konstanz
+            </p>
+
+            <h3 class="chapter-title">
+              What do animals perceive?
+            </h3>
+
+          </div>
+
+
+          <div class="chapter-body">
+
+            <p class="chapter-question">
+              The mechanistic extension: what sensory information is actually
+              available to lions when they make social decisions?
+            </p>
+
+            <p>
+              “What do animals perceive? Advancing Multi-Sensor Biologging for
+              Sensory Ecology Research” extends the programme from observed
+              collective behaviour to the perceptual environment that precedes it.
+              We combine AI-supported analysis of multi-sensor biologging data with
+              controlled experiments on how lions perceive sounds, sights, and
+              smells—particularly in the contexts of communication and coordination.
+            </p>
+
+
+            <div class="chapter-grid">
+
+              <div>
+                <span class="chapter-label">What it adds</span>
+
+                <p class="chapter-small">
+                  A sensory-ecology layer linking environmental information,
+                  perception, communication, and collective decision-making.
+                </p>
+              </div>
+
+
+              <div>
+                <span class="chapter-label">Project collaborators</span>
+
+                <p class="chapter-small">
+                  Matthew Wijers · University of Oxford<br>
+                  Simon Chamaillé-Jammes · CNRS<br>
+                  Paul-Antoine Libourel · Lyon Neuroscience Research Center
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="chapter-grid">
+
+              <div>
+                <span class="chapter-label">Award</span>
+
+                <p class="chapter-small">
+                  €87,000
+                </p>
+              </div>
+
+
+              <div>
+                <span class="chapter-label">Methods</span>
+
+                <p class="chapter-small">
+                  Multi-sensor biologging · sensory experiments ·
+                  AI-assisted analysis · communication · coordination
+                </p>
+              </div>
+
+            </div>
+
+
+            <a class="project-link"
+               href="https://www.uni-konstanz.de/zukunftskolleg/news/current-news/single-news/three-new-zenit-fellows-selected/"
+               target="_blank"
+               rel="noopener">
+              Official ZENiT award page →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+      <!-- ================= END SECTION 04C =================== -->
+
+
+    </div>
+    <!-- ================= END SECTION 04 ====================== -->
+
+<!-- =======================================================
+         SECTION 05: PEOPLE + COLLABORATORS
+
+         Equal co-PI cards first.
+         Grant collaborators and field partners follow separately.
+         ======================================================= -->
+    <section class="section people-section" id="people">
+
+      <div class="section-heading">
+
+        <p class="eyebrow dark">
+          People &amp; collaborations
+        </p>
+
+        <h2>
+          A jointly led programme built through long-term partnerships.
+        </h2>
+
+        <p>
+          The programme is jointly led by Natalia Borrego and Genevieve E. Finerty.
+          Specific grants bring additional scientific collaborators into the
+          programme, while long-term field partnerships make the comparative
+          research possible across sites.
+        </p>
+
+      </div>
+
+
+      <!-- ---------- CO-PIs ---------- -->
+      <div class="co-pi-grid">
+
+        <article class="person-card">
+
+          <p class="eyebrow dark">
+            Co-Principal Investigator
+          </p>
+
+          <h3>
+            Natalia Borrego
+          </h3>
+
+          <p>
+            Behavioural and wildlife ecologist working on social strategies,
+            collective behaviour, cognition, sensory ecology, and comparative
+            field research in African lions.
+          </p>
+
+          <div class="person-links">
+
+            <a href="https://natalia-borrego.github.io/"
+               target="_blank"
+               rel="noopener">
+              Personal website →
+            </a>
+
+            <a href="https://www.ab.mpg.de/person/107217/2736"
+               target="_blank"
+               rel="noopener">
+              MPI-AB profile →
+            </a>
+
+            <a href="https://lioncenter.umn.edu/natalia-borrego/"
+               target="_blank"
+               rel="noopener">
+              Lion Center profile →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="person-card">
+
+          <p class="eyebrow dark">
+            Co-Principal Investigator
+          </p>
+
+          <h3>
+            Genevieve E. Finerty
+          </h3>
+
+          <p>
+            Ecologist working at the interface of spatial and behavioural ecology,
+            with interests in animal movement, social and spatial structure, and
+            collaborative quantitative research.
+          </p>
+
+          <div class="person-links">
+
+            <a href="https://www.ab.mpg.de/people/107215"
+               target="_blank"
+               rel="noopener">
+              MPI-AB profile →
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <!-- ---------- GRANT COLLABORATORS ---------- -->
+      <h3 class="people-subhead">
+        Grant collaborators
+      </h3>
+
+
+      <div class="collab-grid">
+
+        <article class="collab-card">
+          <strong>Matthew Wijers</strong>
+          <span>University of Oxford</span>
+          <div class="grant-group">ZENiT</div>
+        </article>
+
+        <article class="collab-card">
+          <strong>Simon Chamaillé-Jammes</strong>
+          <span>CNRS</span>
+          <div class="grant-group">ZENiT</div>
+        </article>
+
+        <article class="collab-card">
+          <strong>Paul-Antoine Libourel</strong>
+          <span>Lyon Neuroscience Research Center</span>
+          <div class="grant-group">ZENiT</div>
+        </article>
+
+      </div>
+
+
+      <!-- ---------- FIELD PARTNERS ---------- -->
+      <h3 class="people-subhead">
+        Field partnerships
+      </h3>
+
+
+      <div class="collab-grid">
+
+        <article class="collab-card">
+          <strong>Ombonde Research Team · Namibia</strong>
+          <span>
+            Co-led field programme, long-term monitoring, whole-group biologging,
+            and comparative behavioural research.
+          </span>
+        </article>
+
+        <article class="collab-card">
+          <strong>Lion Rangers · Namibia</strong>
+          <span>
+            Long-term field knowledge, monitoring, ranger collaboration,
+            and capacity building in the shared human-lion landscape.
+          </span>
+        </article>
+
+        <article class="collab-card">
+          <strong>Leopard Ecology &amp; Conservation · Botswana</strong>
+          <span>
+            Long-term Kalahari field collaboration, lion ecology, tracking,
+            and behavioural reconstruction.
+          </span>
+        </article>
+
+        <article class="collab-card">
+          <strong>San tracking team · Botswana</strong>
+          <span>
+            Tracking expertise used to reconstruct hunts, movements, and
+            behavioural events that biologging alone cannot recover.
+          </span>
+        </article>
+
+        <article class="collab-card">
+          <strong>CyberTracker</strong>
+          <span>
+            Tracking methodology, professional certification support,
+            and collaborative field-team training.
+          </span>
+        </article>
+
+        <article class="collab-card">
+          <strong>Research partner · Zimbabwe</strong>
+          <span>
+            Long-term conservancy collaboration supporting whole-pride biologging
+            and behavioural monitoring.
+          </span>
+        </article>
+
+      </div>
+
+    </section>
+    <!-- ================= END SECTION 08 ====================== -->
+
+
+
+
+    <!-- =======================================================
+         SECTION 06: WHAT THE AWARDS BUILT
+
+         This section synthesizes the programme AFTER visitors
+         have seen the three grants.
+         ======================================================= -->
+    <section class="section platform-section" id="programme">
+
+      <div class="section-heading">
+
+        <p class="eyebrow light">
+          What the awards have built
+        </p>
+
+        <h2>
+          A comparative platform for studying lion societies.
+        </h2>
+
+        <p>
+          Together, the three awards support a shared comparative framework
+          across ecologically contrasting lion populations. Whole-group biologging
+          provides comparable measurements across populations, while field methods
+          are adapted to the ecological and logistical realities of each system.
+        </p>
+
+      </div>
+
+
+      <div class="platform-grid">
+
+        <article class="platform-card">
+          <span>Across populations</span>
+
+          <h3>
+            Whole-group biologging
+          </h3>
+
+          <p>
+            Simultaneous measurements from multiple group members allow social
+            behaviour to be studied as interactions among individuals rather
+            than as isolated movement tracks.
+          </p>
+        </article>
+
+
+        <article class="platform-card">
+          <span>Across scales</span>
+
+          <h3>
+            Behaviour in ecological context
+          </h3>
+
+          <p>
+            Movement, association, communication, resource conditions, and
+            social opportunity are interpreted together rather than as
+            separate datasets.
+          </p>
+        </article>
+
+
+        <article class="platform-card">
+          <span>Across methods</span>
+
+          <h3>
+            Sensors grounded by field knowledge
+          </h3>
+
+          <p>
+            Direct observation, tracking, and site-specific ecological knowledge
+            provide the behavioural ground truth needed to interpret sensor data.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+    <!-- ================= END SECTION 05 ====================== -->
+
+
+    <!-- =======================================================
+         SECTION 07: FIELD SYSTEMS
+
+         IMPORTANT:
+         Keep the Zimbabwe site/partner anonymous publicly.
+
+         PHOTOS:
+         assets/images/namibia.jpg
+         assets/images/botswana.jpg
+         assets/images/zimbabwe.jpg
+         ======================================================= -->
+    <section class="section" id="sites">
+
+      <div class="section-heading">
+
+        <p class="eyebrow dark">
+          Comparative field systems
+        </p>
+
+        <h2>
+          Different ecological conditions create different social opportunities.
+        </h2>
+
+        <p>
+          The strength of the programme comes from applying a common comparative
+          framework to lion populations that differ in resource availability,
+          landscape structure, population density, and proximity to people.
+        </p>
+
+      </div>
+
+
+      <div class="site-grid">
+
+
+        <!-- ---------- NAMIBIA ---------- -->
+        <article class="site-card">
+
+          <img
+            src="assets/images/namibia.jpg"
+            alt="Lion research landscape in north-western Namibia">
+
+          <div>
+
+            <p class="site-label">Namibia</p>
+
+            <h3>
+              Mountains, scarcity, and shared space
+            </h3>
+
+            <p>
+              In north-western Namibia, low-density lions move through a
+              semi-arid, mountainous landscape used extensively by people and
+              livestock. Through the co-led Ombonde Research Team, we combine
+              whole-group biologging with long-term field monitoring across a
+              landscape where human activity is not a distant boundary but part
+              of the environment lions move through.
+            </p>
+
+            <p class="site-role">
+              <strong>Programme role:</strong>
+              Tests how social organisation operates when resources are sparse,
+              groupmates may be widely dispersed, and lions share the entire
+              landscape with people and livestock.
+            </p>
+
+            <div class="site-tags">
+              <span>Low density</span>
+              <span>Semi-arid</span>
+              <span>Mountainous</span>
+              <span>Shared landscape</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- ---------- BOTSWANA ---------- -->
+        <article class="site-card">
+
+          <img
+            src="assets/images/botswana.jpg"
+            alt="Lion research landscape in Botswana">
+
+          <div>
+
+            <p class="site-label">Botswana</p>
+
+            <h3>
+              Pans, tracking, and the human edge
+            </h3>
+
+            <p>
+              In Botswana, low-density lions occupy a predominantly flat,
+              semi-arid landscape structured by pans and bordered by areas used
+              by people and livestock. Our long-term collaboration with Leopard
+              Ecology &amp; Conservation combines whole-group biologging with San
+              tracking expertise to reconstruct hunts, movements, and social
+              interactions that sensor data alone cannot reveal.
+            </p>
+
+            <p class="site-role">
+              <strong>Programme role:</strong>
+              Links comparable biologging measurements to unusually detailed
+              behavioural reconstruction on the ground.
+            </p>
+
+            <div class="site-tags">
+              <span>Low density</span>
+              <span>Semi-arid</span>
+              <span>Flat / pans</span>
+              <span>Human-use boundary</span>
+              <span>San tracking</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- ---------- ZIMBABWE ---------- -->
+        <article class="site-card">
+
+          <img
+            src="assets/images/zimbabwe.jpg"
+            alt="Lion research landscape in Zimbabwe">
+
+          <div>
+
+            <p class="site-label">Zimbabwe</p>
+
+            <h3>
+              Resources, density, and social opportunity
+            </h3>
+
+            <p>
+              Our Zimbabwe population provides a strong ecological contrast:
+              resources are comparatively abundant, lion density is high, and
+              the study lions are spatially removed from the immediate
+              human-use boundary.
+            </p>
+
+            <p class="site-role">
+              <strong>Programme role:</strong>
+              Provides the high-resource, high-density comparison needed to ask
+              how movement, association, and collective behaviour change when
+              groupmates and resources are encountered more frequently.
+            </p>
+
+            <div class="site-tags">
+              <span>High density</span>
+              <span>Resource-rich</span>
+              <span>High social opportunity</span>
+              <span>Lower immediate human exposure</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+    <!-- ================= END SECTION 06 ====================== -->
+
+
+    <!-- =======================================================
+         SECTION 08: HOW THE PROGRAMME WORKS
+
+         PHOTO:
+         assets/images/methods.jpg
+         ======================================================= -->
+    <section class="section methods-section" id="methods">
+
+      <div class="methods-image">
+
+        <img
+          src="assets/images/methods.jpg"
+          alt="Field methods used in comparative lion research">
+
+      </div>
+
+
+      <div>
+
+        <p class="eyebrow dark">
+          How the programme works
+        </p>
+
+        <h2>
+          Comparable measurements, grounded in field knowledge.
+        </h2>
+
+        <p>
+          No single technology reveals social behaviour on its own. We combine
+          measurements across scales so that movement, interaction,
+          communication, perception, and ecological context can be interpreted
+          together.
+        </p>
+
+        <div class="methods-list">
+          <div>Whole-group GPS biologging</div>
+          <div>Accelerometry &amp; magnetometry</div>
+          <div>Collar-mounted acoustics</div>
+          <div>Direct behavioural observation</div>
+          <div>Indigenous tracking</div>
+          <div>Behavioural &amp; sensory experiments</div>
+          <div>Comparative field ecology</div>
+          <div>AI-supported multi-sensor analysis</div>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- ================= END SECTION 07 ====================== -->
+
+<!-- =======================================================
+         SECTION 09: SELECTED OUTPUTS
+         ======================================================= -->
+    <section class="section" id="outputs">
+
+      <div class="section-heading">
+
+        <p class="eyebrow dark">
+          Selected programme outputs
+        </p>
+
+        <h2>
+          Research emerging from the comparative framework.
+        </h2>
+
+        <p>
+          Selected papers and scholarly outputs that develop the programme's
+          comparative, methodological, and sensory perspectives.
+        </p>
+
+      </div>
+
+
+      <div class="outputs-grid">
+
+        <article class="output-card">
+
+          <span class="output-year">
+            2026 · Animal Behaviour
+          </span>
+
+          <h3>
+            Beyond the Serengeti lion
+          </h3>
+
+          <p>
+            Addressing ecological and systemic biases in behavioural research
+            through horizontal comparison.
+          </p>
+
+          <a href="https://doi.org/10.1016/j.anbehav.2026.123562"
+             target="_blank"
+             rel="noopener">
+            Read publication →
+          </a>
+
+        </article>
+
+
+        <article class="output-card">
+
+          <span class="output-year">
+            2025 · African Journal of Wildlife Research
+          </span>
+
+          <h3>
+            Beyond observation
+          </h3>
+
+          <p>
+            Indigenous tracking explores complex lion behaviour in challenging
+            environments.
+          </p>
+
+          <a href="https://doi.org/10.3957/056.055.0405"
+             target="_blank"
+             rel="noopener">
+            Read publication →
+          </a>
+
+        </article>
+
+
+        <article class="output-card">
+
+          <span class="output-year">
+            2024 · Frontiers in Conservation Science
+          </span>
+
+          <h3>
+            The crossroads of tradition and modern technology
+          </h3>
+
+          <p>
+            Integrative approaches to studying carnivores in low-density ecosystems.
+          </p>
+
+          <a href="https://doi.org/10.3389/fcosc.2024.1402500"
+             target="_blank"
+             rel="noopener">
+            Read publication →
+          </a>
+
+        </article>
+
+
+        <article class="output-card">
+
+          <span class="output-year">
+            2023 · eLife
+          </span>
+
+          <h3>
+            Sensory collectives in natural systems
+          </h3>
+
+          <p>
+            A framework for understanding how groups acquire and use sensory
+            information.
+          </p>
+
+          <a href="https://doi.org/10.7554/eLife.88028"
+             target="_blank"
+             rel="noopener">
+            Read publication →
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+    <!-- ================= END SECTION 09 ====================== -->
+
+
+  </main>
+
+
+  <!-- =========================================================
+       SECTION 10: FOOTER
+       ========================================================= -->
+  <footer>
+
+    <p>
+      Comparative Lion Behaviour Research Programme ·
+      Natalia Borrego &amp; Genevieve E. Finerty
+    </p>
+
+    <p>
+      <a href="https://natalia-borrego.github.io/">
+        Natalia Borrego personal website
+      </a>
+    </p>
+
+  </footer>
+  <!-- ================= END SECTION 10 ======================== -->
+
+
+</body>
+</html>
